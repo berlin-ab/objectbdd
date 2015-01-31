@@ -48,3 +48,8 @@ see Behave or Lettuce.
 
 
 Please create issues on Github if you have bugs or feature requests.  Pull-requests are welcome.
+
+
+## Thanks
+
+Inspiration for objectbdd comes from Ruby's Simple BDD library:  https://github.com/robb1e/simple_bdd
