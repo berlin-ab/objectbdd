@@ -1,3 +1,6 @@
+import objectbdd.exceptions as exceptions
+
+
 class Scenario(object):
     def __init__(self, test):
         self.test = test
@@ -16,8 +19,10 @@ class Scenario(object):
 
     def describe(self, message):
         methods = self.transform(message)
-        print methods
-
         for method in methods:
-            function = getattr(self.test, method)
+            try:
+                function = getattr(self.test, method)
+            except AttributeError as attribute_error:
+                raise exceptions.StepNotDefined(attribute_error.message)
+
             function.__call__()
