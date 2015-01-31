@@ -23,21 +23,34 @@ see Behave or Lettuce.
     import objectbdd
 
     class TestCustomerPayment(unittest.TestCase):
-        def test_customer_can_pay(self):
-            objectbdd.Scenario(self).describe("""
+        def setUp(self):
+            self.scenario = objectbdd.Scenario(self)
+            self.scenario.describe("""
                 Given I am a customer on the checkout page
+            """)
+
+        def test_customer_can_pay(self):
+            self.scenario.describe("""
                 When I enter my credit card details
                 Then I should receive a payment confirmation
+            """)
+
+        def test_customer_can_pay(self):
+            self.scenario.describe("""
+                When I enter my invalid credit card details
+                Then I should receive a warning
             """)
 
         def i_am_a_customer_on_the_checkout_page(self):
             # ... write some logic
 
-        def I_enter_my_credit_card_details(self):
+        def i_enter_my_credit_card_details(self):
             # ... interact with your system
 
-        def I_should_receive_a_payment_confirmation(self):
+        def i_should_receive_a_payment_confirmation(self):
             # ... assert the expected behavior
+
+        # ... additional methods
 
 
 ## Improving objectbdd / Development Environment
