@@ -16,8 +16,6 @@ class Scenario(object):
 
     def describe(self, message):
         methods = self.transform(message)
-        print methods
-
         for method in methods:
             function = getattr(self.test, method)
             function.__call__()
