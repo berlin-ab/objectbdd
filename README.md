@@ -57,7 +57,7 @@ see Behave or Lettuce.
 
 
     mkvirtualenv objectbdd-test
-    ./build.sh
+    ./scripts/build.sh
 
 
 Please create issues on Github if you have bugs or feature requests.  Pull-requests are welcome.
